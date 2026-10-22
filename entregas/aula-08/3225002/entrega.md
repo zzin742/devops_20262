@@ -19,7 +19,7 @@
 - [x] Docker build no CI sem erros
 - [x] Secret referenciado no workflow (`AWS_REGION`)
 - [x] Badge de status no README
-- [x] Screenshots do pipeline verde
+- [ ] Screenshots do pipeline verde — **substituídos pelos links das execuções**, abaixo
 
 ## Evidência do Pipeline Rodando
 
@@ -69,7 +69,7 @@ Comentário publicado automaticamente pelo job `comentar-no-pr`:
 | R4 | Docker build taggeado | `technova-api:${{ github.sha }}` e `:latest` |
 | R5 | Secret referenciado | `${{ secrets.AWS_REGION }}` no job `build` |
 | R6 | Badge de status | topo do `aula-08/README.md` |
-| R7 | Screenshots | `aula-08/screenshots/` |
+| R7 | Screenshots | ⚠️ **não entregues como imagem** — no lugar, os links diretos das execuções verde e vermelha, abaixo |
 
 ## Bônus implementados (5 de 5)
 
@@ -89,3 +89,19 @@ na raiz do repositório**, porque o GitHub Actions só reconhece workflows em
 `.github/workflows/` da raiz — dentro de uma subpasta ele nunca seria disparado.
 Os jobs usam `working-directory: aula-08` para operar sobre o código da aula, e
 há filtro por `paths:` para o CI só rodar quando algo desta aula mudar.
+
+## Observação sobre o R7 (screenshots)
+
+Não estou entregando as imagens. No lugar delas, os **links diretos** das
+execuções no GitHub Actions, que mostram exatamente o mesmo conteúdo e têm a
+vantagem de serem verificáveis — dá para abrir cada job, ler o log e conferir
+que o resultado é real:
+
+| O que o R7 pede | Link |
+|---|---|
+| Pipeline passando | https://github.com/zzin742/unifaat-devops-portfolio/actions/runs/38830448802 |
+| Pipeline falhando | https://github.com/zzin742/unifaat-devops-portfolio/actions/runs/38830607192 |
+| Secret configurado | o job `build` do run verde falha de propósito se `AWS_REGION` não existir; como ele passou, o secret está configurado |
+
+Prefiro declarar isso do que marcar o item como cumprido. Se os prints forem
+obrigatórios para a nota, me avise que eu os anexo.
